@@ -15,7 +15,7 @@ if not os.path.exists(MODEL_FILE):
     st.stop()
 
 try:
-    with open(MODEL_FILE, "rb") as f:
+    with open("heart_disease_model.pkl", "rb") as f:
         model = pickle.load(f)
 except Exception as e:
     st.error(f"Error loading model: {e}")
