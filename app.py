@@ -1,12 +1,11 @@
 import streamlit as st
-import pickle
 import numpy as np
+import joblib
 
 st.title("ML Prediction App")
 
 try:
-    with open("heart_disease_model.pkl", "rb") as f:
-        model = pickle.load(f)
+    model = joblib.load("heart_disease_model.pkl")
 except Exception as e:
     st.error(f"Error loading model: {e}")
     st.stop()
@@ -24,4 +23,3 @@ if st.button("Predict"):
         st.success(f"Prediction: {prediction[0]}")
     except Exception as e:
         st.error(f"Prediction error: {e}")
-      
